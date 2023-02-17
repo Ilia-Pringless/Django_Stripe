@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Item, Order
+
+from .models import Discount, Item, Order
 
 
 @admin.register(Item)
@@ -10,4 +11,9 @@ class ItemAdmin(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'created')
+    list_display = ('pk', 'created', 'discount')
+
+
+@admin.register(Discount)
+class DiscountAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'stripe_id', 'percentage_discount')

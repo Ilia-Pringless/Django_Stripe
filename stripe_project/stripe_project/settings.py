@@ -1,8 +1,13 @@
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-ii-c@q1i52t1c)8!hd)5dbgu3q@)d@7+(1ugt398%w@ym+mam6'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 DEBUG = True
 
@@ -88,5 +93,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STRIPE_PUBLISHABLE_KEY = 'pk_test_51MbpYfGVl5Wd7WlmJnQgPDqCsT5ANkQBzUASK2dTbU3Ef7DGVJ4vavnMMohZy1Dmxd5XAs3lAaNbuMdcs5tnMAX700vsztKXpU'
-STRIPE_SECRET_KEY = 'sk_test_51MbpYfGVl5Wd7WlmgPoOo1ZAlVgoxDSYCCMKgXpMoPzXEBff3Ebq76wccnOsC4Ep08gumO0U601hQJ3RI1wjfmdI009Zw4AlB1'
+STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')

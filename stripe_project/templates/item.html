@@ -7,12 +7,15 @@
   <body>
     <h1>{{ item.name }}</h1>
     <p>{{ item.description }}</p>
-    <p>{{ item.price }}</p>
+    <p>price {{ item.price }} $</p>
+    <p>discount {{ discount }}%</p>
+    <p>final price {{ final_price }} $</p>
     <button id="buy-button">Buy</button>
     <script src="https://js.stripe.com/v3/"></script>
     <script type="text/javascript">
       var id = "{{item.id}}";
-      const stripe = Stripe('pk_test_51MbpYfGVl5Wd7WlmJnQgPDqCsT5ANkQBzUASK2dTbU3Ef7DGVJ4vavnMMohZy1Dmxd5XAs3lAaNbuMdcs5tnMAX700vsztKXpU');
+      var pubKey = "{{STRIPE_PUBLIC_KEY}}";
+      const stripe = Stripe(pubKey);
       var buyButton = document.getElementById('buy-button');
       buyButton.addEventListener('click', () => {
         fetch('/buy/' + id, {method: 'GET'})
