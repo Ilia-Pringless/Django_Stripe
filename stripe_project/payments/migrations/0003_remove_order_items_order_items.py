@@ -5,19 +5,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('payments', '0002_order'),
+        ("payments", "0002_order"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='order',
-            name='items',
+            model_name="order",
+            name="items",
         ),
         migrations.AddField(
-            model_name='order',
-            name='items',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='order', to='payments.item', verbose_name='Заказ'),
+            model_name="order",
+            name="items",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="order",
+                to="payments.item",
+                verbose_name="Заказ",
+            ),
         ),
     ]

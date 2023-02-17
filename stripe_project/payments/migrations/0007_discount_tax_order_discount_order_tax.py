@@ -6,36 +6,83 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('payments', '0006_item_stripe_price'),
+        ("payments", "0006_item_stripe_price"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Discount',
+            name="Discount",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('stripe_id', models.CharField(max_length=50, verbose_name='ID на stripe.com')),
-                ('percentage_discount', models.IntegerField(validators=[django.core.validators.MaxValueValidator(100), django.core.validators.MinValueValidator(1)])),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "stripe_id",
+                    models.CharField(max_length=50, verbose_name="ID на stripe.com"),
+                ),
+                (
+                    "percentage_discount",
+                    models.IntegerField(
+                        validators=[
+                            django.core.validators.MaxValueValidator(100),
+                            django.core.validators.MinValueValidator(1),
+                        ]
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='Tax',
+            name="Tax",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('stripe_id', models.CharField(max_length=50, verbose_name='ID на stripe.com')),
-                ('rate', models.IntegerField(validators=[django.core.validators.MaxValueValidator(100), django.core.validators.MinValueValidator(1)])),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "stripe_id",
+                    models.CharField(max_length=50, verbose_name="ID на stripe.com"),
+                ),
+                (
+                    "rate",
+                    models.IntegerField(
+                        validators=[
+                            django.core.validators.MaxValueValidator(100),
+                            django.core.validators.MinValueValidator(1),
+                        ]
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='order',
-            name='discount',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='payments.discount'),
+            model_name="order",
+            name="discount",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="payments.discount",
+            ),
         ),
         migrations.AddField(
-            model_name='order',
-            name='tax',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='payments.tax'),
+            model_name="order",
+            name="tax",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="payments.tax",
+            ),
         ),
     ]

@@ -4,19 +4,18 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('payments', '0003_remove_order_items_order_items'),
+        ("payments", "0003_remove_order_items_order_items"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='order',
-            name='items',
+            model_name="order",
+            name="items",
         ),
         migrations.AddField(
-            model_name='order',
-            name='items',
-            field=models.ManyToManyField(to='payments.item'),
+            model_name="order",
+            name="items",
+            field=models.ManyToManyField(to="payments.item"),
         ),
     ]
