@@ -83,7 +83,7 @@ def generate_line_items(path: str, obj_id: int) -> list:
 
 
 def get_discount(path: str, obj_id: int) -> str | None:
-    """Получить размер скидки (при наличии)"""
+    """Получить скидку (при наличии)"""
     if "/buy_order" in path:
         try:
             return Discount.objects.get(order=obj_id).stripe_id
