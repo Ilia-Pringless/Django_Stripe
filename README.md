@@ -1,5 +1,5 @@
 # Django_Stripe
-![workflow](https://github.com/Ilia-Pringless/Django_Stripe/actions/workflows/yamdb_workflow.yml/badge.svg)
+![workflow](https://github.com/Ilia-Pringless/Django_Stripe/actions/workflows/main.yml/badge.svg)
 
 В проекте реализован пример взаимодействия с сервисом Stripe и python библиотекой stripe.
 
